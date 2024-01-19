@@ -270,9 +270,9 @@ git push origin --delete GFP_LOCK_BRANCH_NAME（解锁）
 
 
 # 作者信息
-作者博客：[https://xiaolyuh.blog.csdn.net/](https://xiaolyuh.blog.csdn.net/)
-作者邮箱： xiaolyuh@163.com  
-github 地址：https://github.com/wyh-chenfeng/layering-cache
+- 作者博客：[https://xiaolyuh.blog.csdn.net/](https://xiaolyuh.blog.csdn.net/)
+- 作者邮箱： xiaolyuh@163.com  
+- github 地址：https://github.com/wyh-chenfeng/layering-cache
 
 
 # 捐赠
