@@ -1,0 +1,114 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '1.8.1'
+}
+
+group 'com.github.xiaolyuh'
+version pluginVersion
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'com.squareup.okhttp3:okhttp:3.6.0'
+    implementation 'com.alibaba:fastjson:1.2.78'
+}
+
+intellij {
+    version = ideaVersion
+    plugins = ['git4idea', 'tasks']
+    intellij.updateSinceUntilBuild = false
+}
+
+patchPluginXml {
+    sinceBuild = mgfPluginSinceBuild
+    untilBuild = mgfPluginUntilBuild
+    changeNotes = """
+        <em>1.2.1<em></br
+        <em>1. 新增Commit Message 校验<em>
+        
+        <em>1.1.14<em></br
+        <em>1. 解决初始化机器人token不生效问题<em></br> 
+
+        <em>1.1.12<em></br
+        <em>1. 初始化配置不去新建分支，分支只能选择已有分支<em></br> 
+        <em>2. 分支删除  删除全部分支、删除几天之外的分支、删除已经合并到主干的分支<em></br> 
+        <em>3. 消息模块新增MR发起人 <em></br>  
+
+        <em>1.1.6<em></br
+        <em>1. merge requet 支持目标分支可选 <em></br>   
+        <em>1. 支持2020.3、2021.*、2022.2 版本 <em></br> 
+        
+        <em>1.1.4<em></br
+        <em>1. 修复gitlib 解决冲突分支相互合并的问题 <em></br>   
+        
+        <em>1.1.1<em></br>
+        <em>1. 新增merge requet 标签功能 <em></br>   
+        
+        <em>1.1.0<em></br>
+        <em>2. 支持在本地发起Merge Request<em></br>   
+        
+        <em>1.0.13<em></br>
+        <em>1. 对2020.3的支持<em></br>   
+
+        <em>1.0.12<em></br>
+        <em>1. 对2020.2的支持<em></br>   
+        
+        <em>1.0.11<em></br>
+        <em>1. 修正锁定时间不准确的问题<em></br>   
+        
+        <em>1.0.10<em></br>
+        <em>1. 修改重建测试分支bug<em></br>   
+             
+        <em>1.0.9<em></br>
+        <em>1. 获取最后一次操作人时先fetch下<em></br>        
+        
+        <em>1.0.8<em></br>
+        <em>1. 最后一次操作人从锁定分支上面取<em></br>        
+        
+        <em>1.0.7<em></br>
+        <em>1. 优化2020.1<em></br>
+        
+        <em>1.0.6<em></br>
+        <em>1. 优化2020.1<em></br>
+        
+        <em>1.0.5<em></br>
+        <em>1. 支持2020.1<em></br>
+        
+        <em>1.0.4<em></br>
+        <em>1. 修改发布完成的弹框提示<em></br>
+
+        </br>
+        <em>1.0.3<em></br>
+        <em>1. 国际化的支持<em></br>
+
+        </br>
+        <em>1.0.2<em></br>
+        <em>1. merge代码优化<em></br>
+        <em>2. 文档格式优化<em></br>
+
+        </br>
+        <em>1.0.1<em></br>
+        <em>1. 新增GIT 命令输出<em></br>
+        <em>2. 发布完成合并release到master<em></br>
+        <em>3. 发布完成权限校验<em></br>
+        <em>4. Tag 名称校验<em></br>
+        
+        </br>
+        <em>1.0.0<em></br>
+        <em>插件名称修改成GitFlowPlus</em></br>
+        <em>发布完成和发布失败强制校验发布分支是否锁定</em></br>
+      """
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
